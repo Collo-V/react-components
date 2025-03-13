@@ -1,8 +1,9 @@
 'use client'
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 const ReactQuill = dynamic(() => import('./ReactQuill'), { ssr: false })
 import dynamic from "next/dynamic";
 import {extractTextFromHTML} from "collov-js-methods";
+import '@/styles/quill.css'
 const toolbar = [
     ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
     ['blockquote', 'code-block'],
@@ -23,12 +24,14 @@ export type QuillTextProps = {
     value:string|null,
     handleChange:(value:string|null)=>void,
     error?:boolean,
-    maximumWords?:number
+    maximumWords?:number,
+    placeholder?:string
 }
 
 function QuillRichText(props:QuillTextProps) {
     const {
         value,handleChange,error,maximumWords,
+        placeholder,
     } = props
     const [showQuill,setShowQuill] = useState(false)
     const [totalWords, setTotalWords] = useState<number>(0)
@@ -58,7 +61,7 @@ function QuillRichText(props:QuillTextProps) {
             {
                 showQuill &&
                 <ReactQuill
-                    placeholder='3 bedroom apartment with a beautiful ocean view in...'
+                    placeholder={placeholder||'Start typing'}
                     className={getContClass()}
                     theme="snow"
                     value={value}

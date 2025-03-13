@@ -1,6 +1,6 @@
 {
   "name": "collov-react-components",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -25,8 +25,7 @@
   "dependencies": {
     "@types/openseadragon": "^3.0.10",
     "animate.css": "^4.1.1",
-    "buyrent-components-test": "^0.1.35",
-    "collov-js-methods": "^0.1.9",
+    "collov-js-methods": "^0.1.20",
     "html-react-parser": "^5.2.1",
     "html-to-pdf": "^0.1.11",
     "leaflet": "^1.9.4",

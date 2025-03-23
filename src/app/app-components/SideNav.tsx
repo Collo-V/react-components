@@ -23,7 +23,11 @@ function SideNav() {
             links: [
                 {
                     name: 'ImageCropper',
-                    link: '/components/imageCropper',
+                    link: '/components/ImageCropper',
+                },
+                {
+                    name: 'ImageInput',
+                    link: '/components/ImageInput',
                 }
             ]
         },
@@ -32,7 +36,7 @@ function SideNav() {
             links: [
                 {
                     name: 'ClickOutSideListener',
-                    link: '/components/clickOutSideListener',
+                    link: '/components/ClickOutSideListener',
                 }
             ]
         },
@@ -112,7 +116,7 @@ function SideNav() {
     }
     return (
         <div
-            className='sidenav lg:relative fixed shrink-0 z-20 top-0 bottom-0 left-0 bg-white dark:bg-slate-800 shadow-md'
+            className='sidenav lg:relativeshrink-0 z-20 top-0 bottom-0 left-0 bg-white dark:bg-slate-800 shadow-md'
             ref={sideNavRef}
             style={{
                 transition: 'width 1s'
@@ -126,8 +130,8 @@ function SideNav() {
                 style={{
                     transition: 'width 1s'
                 }}
-                className={"nav nav-cont py-4 " +
-                    "w-200px bg-white dark:bg-slate-800 h-full overflow-x-hidden " +
+                className={"nav nav-cont py-4 w-0" +
+                    " lg:w-200px bg-white dark:bg-slate-800 h-full overflow-x-hidden " +
                     "overflow-y-auto custom-scroll"}
             >
                 <div className='md:flex justify-between p-2'>

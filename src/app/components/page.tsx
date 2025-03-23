@@ -1,9 +1,2 @@
-import React from 'react';
-
-function Page() {
-    return (
-        <div></div>
-    );
-}
-
+import Page from './[component]/page';
 export default Page;

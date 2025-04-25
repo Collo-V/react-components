@@ -8,7 +8,7 @@ function ClickOutsideListenerCont() {
     return (
         <div>
             <button
-                className="h-10 px-2 border-1px rounded-md"
+                className="crc-h-10 crc-px-2 crc-border-1px crc-rounded-md"
                 onClick={() => setCount(0)}
             >
                 Reset
@@ -21,13 +21,13 @@ function ClickOutsideListenerCont() {
                 // contRef={ref as RefObject<HTMLDivElement>}
             >
                 <div
-                    className='h-300px w-300px bg-white  rounded-md mt-4 flex flex-col justify-center items-center'
+                    className='crc-h-300px crc-w-300px crc-bg-white  crc-rounded-md crc-mt-4 crc-flex crc-flex-col crc-justify-center crc-items-center'
                     ref={ref}
                 >
                     <p>
                         Detect when you click outside this element
                     </p>
-                    <p className={'mt-4'}>
+                    <p className={'crc-mt-4'}>
                         {count} clicks
                     </p>
                 </div>

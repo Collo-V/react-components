@@ -117,8 +117,8 @@ function ImageInput(
 
     return (
         <div
-            className={' fixed w-full z-40 h-screen-h flex items-center' +
-                ' justify-center right-0 bottom-0 bg-slate-600/75 '}
+            className={' crc-fixed crc-w-full crc-z-40 crc-h-screen-h crc-flex crc-items-center' +
+                ' crc-justify-center crc-right-0 crc-bottom-0 crc-bg-slate-600/75 '}
             id='modal-cont'>
             <MobImageInput {...args}/>
             <MainImageInput {...args}/>

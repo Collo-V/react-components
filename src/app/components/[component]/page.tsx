@@ -28,9 +28,9 @@ async function Page({params}:PageProps) {
     const Component = componentsMap[name as keyof ComponentsMap]||(()=>'');
 
     return (
-        <div className="h-screen-h flex gap-8">
+        <div className="crc-h-screen-h crc-flex crc-gacrc-p-8">
             <SideNav/>
-            <div className="w-full h-full p-8">
+            <div className="crc-w-full crc-h-full crc-p-8">
                 <Component/>
             </div>
         </div>

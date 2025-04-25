@@ -81,19 +81,7 @@ module.exports = {
   theme: {
   	extend: {
   		colors: {
-  			primary: {
-  				DEFAULT: 'hsl(var(--primary))',
-  				foreground: 'hsl(var(--primary-foreground))'
-  			},
-  			'primary-light': '#B4D9F4',
-  			secondary: {
-  				DEFAULT: 'hsl(var(--secondary))',
-  				foreground: 'hsl(var(--secondary-foreground))'
-  			},
-  			'secondary-light': '#A0FFFF',
-  			'secondary-dark': '#008F8F',
-  			'third': '#336DAD',
-  			'gris-bg': '#F9F9F9',
+
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -183,4 +171,5 @@ module.exports = {
   		}
   	}
   },
+	prefix:'crc-'
 } satisfies Config;

@@ -19,25 +19,25 @@ function MainImageInput(
 
     return (
         <div
-            className={' fixed w-full z-40 h-screen-h hidden lg:flex items-center' +
-                ' justify-center right-0 bottom-0 bg-slate-600/75 '}
+            className={' crc-fixed crc-w-full crc-z-40 crc-h-screen-h crc-hidden lg:crc-flex crc-items-center' +
+                ' crc-justify-center crc-right-0 crc-bottom-0 crc-bg-slate-600/75 '}
             id='modal-cont'>
             <ClickOutsideListener
                 onCLick={onCancel}
                 exclude={['mob-image-input-cont']}
             >
                 <div
-                    className="min-h-400px w-full max-w-600px bg-white dark:bg-slate-800 p-8 relative rounded-md flex flex-col justify-between"
+                    className="crc-min-h-400px crc-w-full crc-max-w-600px crc-bg-white dark:crc-slate-800 crc-p-8 crc-relative crc-rounded-md crc-flex crc-flex-col crc-justify-between"
                     ref={contRef}
                     id='main-image-input-cont'
                 >
                     <button
-                        className="absolute top-0 right-0 m-1 w-8 h-8 border-1px rounded-md"
+                        className="crc-absolute crc-top-0 crc-right-0 crc-m-1 crc-w-8 crc-h-8 crc-border-1px crc-rounded-md"
                         onClick={onCancel}
                     >
                         X
                     </button>
-                    <div className="max-w-full">
+                    <div className="crc-max-w-full">
                         <h3>{title}</h3>
                         <ImageDropBox
                             onInput={handleInputs}
@@ -45,7 +45,7 @@ function MainImageInput(
                         />
                         {
                             guidelines.length > 0 &&
-                            <ul className="mt-4 text-3 grid gap-2">
+                            <ul className="crc-mt-4 crc-text-3 crc-grid crc-gap-2">
                                 {
                                     guidelines.map((guideline, index) => (
                                         <li className="" key={index}>
@@ -68,39 +68,39 @@ function MainImageInput(
 
                         {
                             tempFiles.length > max ?
-                                <div className="mt-4 text-3 text-red-500">
+                                <div className="crc-mt-4 crc-text-3 crc-text-red-500">
                                     You can only add {max} images
                                 </div>
                                 :
-                                <div className="mt-4 text-3">
+                                <div className="crc-mt-4 crc-text-3">
                                     You can only add {max} images
                                 </div>
                         }
                         {
                             imagesHaveErrors &&
-                            <div className="mt-4 text-3 text-red-500">
+                            <div className="crc-mt-4 crc-text-3 crc-text-red-500">
                                 Please fix the errors before proceeding
                             </div>
                         }
                         {
                             imagesHaveWarnings &&
-                            <div className="mt-4 text-3 text-orange-500">
+                            <div className="crc-mt-4 crc-text-3 crc-text-orange-500">
                                 Please consider checking the issues highlighted
                             </div>
                         }
                     </div>
-                    <div className="flex justify-end">
+                    <div className="crc-flex crc-justify-end">
                         {
                             tempFiles.length && !imagesHaveErrors  && !loading?
                                 <button
-                                    className="w-120px h-10 bg-primary text-white rounded-md"
+                                    className="crc-w-120px crc-h-10 bg-primary crc-text-white crc-rounded-md"
                                     onClick={onDone}
                                 >
                                     Done
                                 </button>
                                 :
                                 <button
-                                    className="w-120px h-10 border-1px bg-slate-100 dark:bg-slate-400 rounded-md cursor-notallowed"
+                                    className="crc-w-120px crc-h-10 crc-border-1px crc-bg-slate-100 crc-dark:bg-slate-400 crc-rounded-md crc-cursor-notallowed"
                                     disabled={true}
                                 >
                                     Add

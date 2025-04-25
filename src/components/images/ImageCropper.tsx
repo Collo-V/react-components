@@ -69,8 +69,8 @@ function ImageCropper(props:Props) {
     if(!src)return ''
     return (
         <div 
-            className={ ' fixed w-full z-40 h-screen-h flex items-center' +
-            ' justify-center right-0 bottom-0 bg-slate-600/75 animate__animated animate__fadeInUp'}
+            className={ ' crc-fixed crc-w-full crc-z-40 crc-h-screen-h crc-flex crc-items-center' +
+            ' crc-justify-center crc-right-0 crc-bottom-0 crc-bg-slate-600/75 animate__animated animate__fadeInUp'}
         >
             <ClickOutsideListener
                 onCLick={handleHide}
@@ -78,34 +78,34 @@ function ImageCropper(props:Props) {
                 <div
                     ref={cropImagesContRef}
                     id={'cropper-cont'}
-                    className={"overflow-hidden w-full max-w-full lg:max-w-500px " +
-                        "h-full lg:h-fit bg-white dark:bg-slate-800 p-8 relative " +
-                        "rounded-md flex flex-col gap-4 justify-between items-center"
+                    className={"crc-overflow-hidden crc-w-full crc-max-w-full lg:max-w-500px " +
+                        "crc-h-full lg:crc-h-fit crc-bg-white dark:crc-slate-800 crc-p-8 crc-relative " +
+                        "crc-rounded-md crc-flex crc-flex-col crc-gap-4 crc-justify-between crc-items-center"
                     }
                 >
-                    <div className={'w-full'}>
-                        <h3 className={'mb-4 w-full'}>
+                    <div className={'crc-w-full'}>
+                        <h3 className={'crc-mb-4 crc-w-full'}>
                             Crop {filename || 'Image'}
                         </h3>
-                        <div className="flex justify-between shrink-0">
+                        <div className="crc-flex crc-justify-between crc-shrink-0">
                             <button
-                                className="w-8 h-8 border-1px rounded-md"
+                                className="crc-w-8 crc-h-8 crc-border-1px crc-rounded-md"
                                 onClick={onCancel}
                             >
                                 X
                             </button>
 
                             <button
-                                className="w-8 h-8 border-1px rounded-md flex items-center justify-center"
+                                className="crc-w-8 crc-h-8 crc-border-1px crc-rounded-md crc-flex crc-items-center crc-justify-center"
                                 onClick={getCrop}
                             >
                                 <FaCheck/>
                             </button>
                         </div>
                     </div>
-                    <div className={'h-full'}>
+                    <div className={'crc-h-full'}>
                         <div
-                            className="w-full oveflow-hidden"
+                            className="crc-w-full overflow-hidden"
                             style={{
                                 maxWidth: '100%',
                                 aspectRatio: aspectRatio || 1,
@@ -115,15 +115,15 @@ function ImageCropper(props:Props) {
                                 width={imageWidth}
                                 height={imageWidth / (aspectRatio || 1)}
                                 src={src} alt=""
-                                className="h-full w-full"
+                                className="crc-h-full crc-w-full"
                                 ref={cropImageRef}
                             />
 
                         </div>
                     </div>
-                    <div className="mt-4 hidden lg:flex justify-end w-full shrink-0">
+                    <div className="crc-mt-4 crc-hidden lg:crc-flex crc-justify-end crc-w-full crc-shrink-0">
                         <button
-                            className="w-120px h-10 bg-primary text-white rounded-md"
+                            className="crc-w-120px crc-h-10 bg-primary crc-text-white crc-rounded-md"
                             onClick={getCrop}
                         >
                             Done

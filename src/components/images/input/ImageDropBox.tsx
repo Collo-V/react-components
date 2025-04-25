@@ -45,25 +45,25 @@ function ImageDropBox({onInput,acceptedImageFormats}:Props) {
     return (
         <div
             id='images-drop-box'
-            className="mt-4 lg:h-32 py-2 border-dotted border-1 rounded-md flex items-center justify-center cursor-pointer"
+            className="crc-mt-4 lg:crc-h-32 crc-py-2 crc-border-dotted crc-border-1 crc-rounded-md crc-flex crc-items-center crc-justify-center crc-cursor-pointer"
             onDragOver={(event) => {
                 event.preventDefault()
             }}
             onDrop={handleDrop}
             onClick={selectImage}
         >
-            <div className="h-fit text-center">
+            <div className="crc-h-fit crc-text-center">
                 {/*<FontAwesomeIcon icon={solid("cloud-arrow-up")}/>*/}
-                <p className='my-2'>Select or drag your images here</p>
+                <p className='crc-my-2'>Select or drag your images here</p>
                 {
                     acceptedImageFormats.length > 0 &&
-                    <p className="italic text-gray-400">
+                    <p className="crc-italic crc-text-gray-400">
                         (Accepts {acceptedImageFormats.map(a =>
                         a.replace('image/', '.')).join(', ')})
                     </p>
                 }
 
-                <p className="italic text-gray-400">
+                <p className="crc-italic crc-text-gray-400">
                     *(Images must be below 10mb)
                 </p>
             </div>

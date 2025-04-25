@@ -52,7 +52,7 @@ function QuillRichText(props:QuillTextProps) {
         setDisableEditor(totalWords > maxWords)
     }, [value]);
     const getContClass = ()=>{
-        let c ='dark:text-white'
+        let c ='dark:crc-text-white'
         if(disableEditor || error)c+=" border-red-500 border-2px"
         return c
     }
@@ -70,14 +70,14 @@ function QuillRichText(props:QuillTextProps) {
                     }}
                     onChange={handleChange} />
             }
-            <div className="flex justify-end">
+            <div className="crc-flex crc-justify-end">
                 {
                     disableEditor &&
-                    <input type="text" className="hidden input-valid"/>
+                    <input type="text" className="crc-hidden input-valid"/>
                 }
                 {
                     disableEditor ?
-                        <span className={'text-red-500'}>{totalWords}/{maxWords}</span>
+                        <span className={'crc-text-red-500'}>{totalWords}/{maxWords}</span>
                         :
                         <span>{totalWords}/{maxWords}</span>
                 }

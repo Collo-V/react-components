@@ -7,7 +7,7 @@ function ImageInputCont() {
     return (
         <div>
             <button
-                className="h-10 px-2 border-1px rounded-md"
+                className="crc-h-10 crc-px-2 crc-border-1px crc-rounded-md"
                 onClick={()=>setShowInput(true)}
             >
                 Select Image

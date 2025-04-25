@@ -20,27 +20,27 @@ function ImageInputPreviews({tempFiles,crop,cropImage,removeImage,aspectRatio}:P
         <>
             {
                 tempFiles.length > 0 &&
-                <div className="flex gap-4 mt-2">
+                <div className="crc-flex crc-gap-4 crc-mt-2">
                     {
                         tempFiles.map((image, index: number) => (
                             <React.Fragment key={index}>
                                 <Popover
                                     content={
                                         (image.error || image.warning)?
-                                            <div className={'grid gap-4 max-w-300px'}>
+                                            <div className={'crc-grid crc-gap-4 crc-max-w-300px'}>
                                                 {
                                                     image.error &&
-                                                    <div className='flex gap-2 items-center'>
+                                                    <div className='crc-flex crc-gap-2 crc-items-center'>
                                                         <FaExclamationTriangle
-                                                            className='fill-red-500 shrink-0'/>
+                                                            className='crc-fill-red-500 crc-shrink-0'/>
                                                         {image.error}
                                                     </div>
                                                 }
                                                 {
                                                     image.warning &&
-                                                    <div className='flex gap-2 items-center'>
+                                                    <div className='crc-flex crc-gap-2 crc-items-center'>
                                                         <FaExclamationCircle
-                                                            className='fill-orange-500 shrink-0'/>
+                                                            className='crc-fill-orange-500 crc-shrink-0'/>
                                                         {image.warning}
                                                     </div>
                                                 }
@@ -49,9 +49,9 @@ function ImageInputPreviews({tempFiles,crop,cropImage,removeImage,aspectRatio}:P
                                     }
                                 >
                                     <div
-                                        className={'w-120px  border-1px rounded-md flex p-1' +
-                                            ' items-center justify-center relative dropdown-cont ' +
-                                            `${image.error ? 'border-red-400' : image.warning ? 'border-orange-500' : ""}`
+                                        className={'crc-w-120px  crc-border-1px crc-rounded-md crc-flex crc-p-1' +
+                                            ' crc-items-center crc-justify-center crc-relative dropdown-cont ' +
+                                            `${image.error ? 'crc-border-red-400' : image.warning ? 'crc-border-orange-500' : ""}`
                                         }
                                         style={{
                                             aspectRatio:aspectRatio||1
@@ -62,23 +62,23 @@ function ImageInputPreviews({tempFiles,crop,cropImage,removeImage,aspectRatio}:P
                                             width={100}
                                             src={image.preview}
                                             alt=""
-                                            className='max-h-90% w-auto'
+                                            className='crc-max-h-90% crc-w-auto'
                                         />
                                         {
                                             (image.error || image.warning) &&
-                                            <div className='absolute top-0 left-0 z-2 m-1'>
+                                            <div className='crc-absolute crc-top-0 crc-left-0 crc-z-2 crc-m-1'>
                                                 {
                                                     image.error?
-                                                        <FaExclamationTriangle className='fill-red-500'/>
+                                                        <FaExclamationTriangle className='crc-fill-red-500'/>
                                                         :
-                                                        <FaExclamationCircle className='fill-orange-500'/>
+                                                        <FaExclamationCircle className='crc-fill-orange-500'/>
                                                 }
                                             </div>
                                         }
                                         <div
-                                            className="dropdown absolute top-0 left-0 h-full w-full bg-gray-300/50 flex flex-col items-end gap-2 rounded-md overflow-hidden">
+                                            className="dropdown crc-absolute crc-top-0 crc-left-0 crc-h-full crc-w-full crc-bg-gray-300/50 crc-flex crc-flex-col crc-items-end crc-gap-2 crc-rounded-md crc-overflow-hidden">
                                             <button
-                                                className="w-8 h-8 float-right flex items-center justify-center bg-red-200 text-red-400"
+                                                className="crc-w-8 crc-h-8 crc-float-right crc-flex crc-items-center crc-justify-center crc-bg-red-200 crc-text-red-400"
                                                 onClick={() => removeImage(index)}
                                             >
                                                 <FaTrashAlt/>
@@ -86,7 +86,7 @@ function ImageInputPreviews({tempFiles,crop,cropImage,removeImage,aspectRatio}:P
                                             {
                                                 crop &&
                                                 <button
-                                                    className="w-8 h-8 float-right flex items-center justify-center bg-white"
+                                                    className="crc-w-8 crc-h-8 crc-float-right crc-flex crc-items-center crc-justify-center crc-bg-white"
                                                     onClick={() => cropImage(index)}
                                                 >
                                                     <FaCrop/>

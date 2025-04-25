@@ -137,7 +137,7 @@ const Carousel = React.forwardRef<
         <div
           ref={ref}
           onKeyDownCapture={handleKeyDown}
-          className={cn("relative", className)}
+          className={cn("crc-relative", className)}
           role="region"
           aria-roledescription="carousel"
           {...props}
@@ -157,12 +157,12 @@ const CarouselContent = React.forwardRef<
   const { carouselRef, orientation } = useCarousel()
 
   return (
-    <div ref={carouselRef} className="overflow-hidden">
+    <div ref={carouselRef} className="crc-overflow-hidden">
       <div
         ref={ref}
         className={cn(
-          "flex",
-          orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col",
+          "crc-flex",
+          orientation === "horizontal" ? "-ml-4" : "crc--mt-4 crc-flex-col",
           className
         )}
         {...props}
@@ -184,8 +184,8 @@ const CarouselItem = React.forwardRef<
       role="group"
       aria-roledescription="slide"
       className={cn(
-        "min-w-0 shrink-0 grow-0 basis-full",
-        orientation === "horizontal" ? "pl-4" : "pt-4",
+        "min-crc-w-0 crc-shrink-0 crc-grow-0 crc-basis-full",
+        orientation === "horizontal" ? "crc-pl-4" : "scr-pt-4",
         className
       )}
       {...props}
@@ -206,10 +206,10 @@ const CarouselPrevious = React.forwardRef<
       variant={variant}
       size={size}
       className={cn(
-        "absolute  h-8 w-8 rounded-full",
+        "crc-absolute  crc-h-8 crc-w-8 rounded-full",
         orientation === "horizontal"
-          ? "-left-12 top-1/2 -translate-y-1/2"
-          : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
+          ? "crc--left-12 crc-top-1/2 crc--translate-y-1/2"
+          : "crc--top-12 crc-left-1/2 crc--translate-x-1/2 crc-rotate-90",
         className
       )}
       disabled={!canScrollPrev}
@@ -235,7 +235,7 @@ const CarouselNext = React.forwardRef<
       variant={variant}
       size={size}
       className={cn(
-        "absolute h-8 w-8 rounded-full",
+        "crc-absolute crc-h-8 crc-w-8 rounded-full",
         orientation === "horizontal"
           ? "-right-12 top-1/2 -translate-y-1/2"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",

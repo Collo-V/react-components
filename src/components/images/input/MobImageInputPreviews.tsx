@@ -38,17 +38,17 @@ function MobImageInputPreviews(
         <>
             {
                 tempFiles.length > 0 &&
-                <div className={'max-w-full h-full flex flex-col justify-between'}>
+                <div className={'crc-max-w-full crc-h-full crc-flex crc-flex-col crc-justify-between'}>
                     <Carousel setApi={setApi} >
                         <CarouselContent>
                             {
                                 tempFiles.map((image, index: number) => (
                                     <CarouselItem key={index}>
-                                        <div className={'w-full'}>
+                                        <div className={'crc-w-full'}>
                                             <div
-                                                className={'border-1px rounded-md flex p-1' +
-                                                    ' items-center justify-center relative dropdown-cont ' +
-                                                    `${image.error ? 'border-red-400' : image.warning ? 'border-orange-500' : ""}`
+                                                className={'crc-border-1px crc-rounded-md crc-flex crc-p-1' +
+                                                    ' crc-items-center crc-justify-center crc-relative dropdown-cont ' +
+                                                    `${image.error ? 'crc-border-red-400' : image.warning ? 'crc-border-orange-500' : ""}`
                                                 }
                                                 style={{
                                                     aspectRatio: aspectRatio || 1
@@ -59,16 +59,16 @@ function MobImageInputPreviews(
                                                     width={100}
                                                     src={image.preview}
                                                     alt=""
-                                                    className='max-h-90% w-auto'
+                                                    className='crc-max-h-90% crc-w-auto'
                                                 />
                                                 {
                                                     (image.error || image.warning) &&
-                                                    <div className='absolute top-0 left-0 z-2 m-1'>
+                                                    <div className='crc-absolute crc-top-0 crc-left-0 crc-z-2 crc-m-1'>
                                                         {
                                                             image.error ?
-                                                                <FaExclamationTriangle className='fill-red-500'/>
+                                                                <FaExclamationTriangle className='crc-fill-red-500'/>
                                                                 :
-                                                                <FaExclamationCircle className='fill-orange-500'/>
+                                                                <FaExclamationCircle className='crc-fill-orange-500'/>
                                                         }
                                                     </div>
                                                 }
@@ -76,20 +76,20 @@ function MobImageInputPreviews(
                                             </div>
                                             {
                                                 (image.error || image.warning) &&
-                                                <div className={'grid gap-4  mt-4'}>
+                                                <div className={'crc-grid crc-gap-4  crc-mt-4'}>
                                                     {
                                                         image.error &&
-                                                        <div className='flex gap-2 items-center'>
+                                                        <div className='crc-flex crc-gap-2 crc-items-center'>
                                                             <FaExclamationTriangle
-                                                                className='fill-red-500 shrink-0'/>
+                                                                className='crc-fill-red-500 crc-shrink-0'/>
                                                             {image.error}
                                                         </div>
                                                     }
                                                     {
                                                         image.warning &&
-                                                        <div className='flex gap-2 items-center'>
+                                                        <div className='crc-flex crc-gap-2 crc-items-center'>
                                                             <FaExclamationCircle
-                                                                className='fill-orange-500 shrink-0'/>
+                                                                className='crc-fill-orange-500 crc-shrink-0'/>
                                                             {image.warning}
                                                         </div>
                                                     }
@@ -103,18 +103,18 @@ function MobImageInputPreviews(
                         </CarouselContent>
 
                     </Carousel>
-                    <div className={'shrink-0'}>
+                    <div className={'crc-shrink-0'}>
                         {
                             tempFiles.length > 0 &&
-                            <div className="flex gap-4 mt-2">
+                            <div className="crc-flex crc-gap-4 crc-mt-2">
                                 {
                                     tempFiles.map((image, index: number) => (
                                         <React.Fragment key={index}>
                                             <div
                                                 onClick={()=>goToSlide(index)}
-                                                className={'w-16  border-1px rounded-md flex p-1' +
-                                                    ' items-center justify-center relative overflow-hidden ' +
-                                                    `${image.error ? 'border-red-400' : image.warning ? 'border-orange-500' : ""}`
+                                                className={'w-16  crc-border-1px crc-rounded-md crc-flex crc-p-1' +
+                                                    ' crc-items-center crc-justify-center crc-relative crc-overflow-hidden ' +
+                                                    `${image.error ? 'crc-border-red-400' : image.warning ? 'crc-border-orange-500' : ""}`
                                                 }
                                                 style={{
                                                     aspectRatio: aspectRatio || 1
@@ -125,13 +125,13 @@ function MobImageInputPreviews(
                                                     width={100}
                                                     src={image.preview}
                                                     alt=""
-                                                    className='max-h-90% w-auto'
+                                                    className='crc-max-h-90% crc-w-auto'
                                                 />
 
                                                 {
                                                     cropIndex === index &&
                                                     <button
-                                                        className="bg-slate-800/50 cover-div flex items-center justify-center text-red-400"
+                                                        className="crc-slate-800/50 cover-div crc-flex crc-items-center crc-justify-center crc-text-red-400"
                                                         onClick={(e) => {
                                                             e.stopPropagation()
                                                             removeImage(index)

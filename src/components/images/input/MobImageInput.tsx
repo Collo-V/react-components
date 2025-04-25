@@ -24,24 +24,24 @@ function MobImageInput(
 
     return (
         <div
-            className={'fixed w-full top-0 left-0 z-40 flex lg:hidden items-center' +
-                ' justify-center right-0 bottom-0 bg-slate-600/75 '}
+            className={'crc-fixed crc-w-full crc-top-0 crc-left-0 crc-z-40 crc-flex lg:crc-hidden crc-items-center' +
+                ' crc-justify-center crc-right-0 crc-bottom-0 crc-bg-slate-600/75 '}
             id='modal-cont'>
             <ClickOutsideListener
                 onCLick={onCancel}
                 exclude={['main-image-input-cont']}
             >
                 <div
-                    className="h-full w-full max-w-600px bg-white dark:bg-slate-800 p-4 relative flex flex-col justify-between gap-4"
+                    className="crc-h-full crc-w-full crc-max-w-600px crc-bg-white dark:crc-slate-800 p-4 crc-relative crc-flex crc-flex-col crc-justify-between crc-gap-4"
                     ref={addImagesContRef}
                     id='mob-image-input-cont'
                 >
-                    <div className="flex justify-between shrink-0">
+                    <div className="crc-flex crc-justify-between crc-shrink-0">
                         {
                             tempFiles.length > 0 ?
-                                <div className="flex gap-4">
+                                <div className="crc-flex crc-gap-4">
                                     <button
-                                        className="px-2 h-8 border-1px rounded-md"
+                                        className="crc-px-2 crc-h-8 crc-border-1px crc-rounded-md"
                                         onClick={selectImages}
                                     >
                                         Add Image
@@ -50,11 +50,11 @@ function MobImageInput(
                                 :
                                 <span></span>
                         }
-                        <div className="flex gap-4">
+                        <div className="crc-flex crc-gap-4">
                             {
                                 tempFiles.length > 0 &&
                                 <button
-                                    className="w-8 h-8 border-1px rounded-md flex items-center justify-center"
+                                    className="crc-w-8 crc-h-8 crc-border-1px crc-rounded-md crc-flex crc-items-center crc-justify-center"
                                     onClick={() => {
                                         setShowCropper(true)
                                     }}
@@ -63,14 +63,14 @@ function MobImageInput(
                                 </button>
                             }
                             <button
-                                className="w-8 h-8 border-1px rounded-md"
+                                className="crc-w-8 crc-h-8 crc-border-1px crc-rounded-md"
                                 onClick={onCancel}
                             >
                                 X
                             </button>
                         </div>
                     </div>
-                    <div className="max-w-full h-full ">
+                    <div className="crc-max-w-full crc-h-full ">
                         <h3>{title}</h3>
 
                         {
@@ -78,13 +78,13 @@ function MobImageInput(
                                 <>
                                     <div
                                         onClick={selectImages}
-                                        className="mt-4 h-150px border-dotted border-2px rounded-md flex items-center justify-center">
+                                        className="crc-mt-4 h-150px crc-border-dotted border-2px crc-rounded-md crc-flex crc-items-center crc-justify-center">
                                         Click to select images
                                     </div>
 
                                     {
                                         guidelines.length > 0 &&
-                                        <ul className="mt-4 text-3 grid gap-2">
+                                        <ul className="crc-mt-4 crc-text-3 crc-grid crc-gap-2">
                                             {
                                                 guidelines.map((guideline, index) => (
                                                     <li className="" key={index}>
@@ -109,39 +109,39 @@ function MobImageInput(
 
                         {
                             tempFiles.length > max ?
-                                <div className="mt-4 text-3 text-red-500">
+                                <div className="crc-mt-4 crc-text-3 crc-text-red-500">
                                     You can only add {max} images
                                 </div>
                                 :
-                                <div className="mt-4 text-3">
+                                <div className="crc-mt-4 crc-text-3">
                                     You can only add {max} images
                                 </div>
                         }
                         {
                             imagesHaveErrors &&
-                            <div className="mt-4 text-3 text-red-500">
+                            <div className="crc-mt-4 crc-text-3 crc-text-red-500">
                                 Please fix the errors before proceeding
                             </div>
                         }
                         {
                             imagesHaveWarnings &&
-                            <div className="mt-4 text-3 text-orange-500">
+                            <div className="crc-mt-4 crc-text-3 crc-text-orange-500">
                                 Please consider checking the issues highlighted
                             </div>
                         }
                     </div>
-                    <div className="flex justify-end shrink-0">
+                    <div className="crc-flex crc-justify-end crc-shrink-0">
                         {
                             tempFiles.length && !imagesHaveErrors  && !loading?
                                 <button
-                                    className="w-120px h-10 bg-primary text-white rounded-md"
+                                    className="crc-w-120px crc-h-10 bg-primary crc-text-white crc-rounded-md"
                                     onClick={onDone}
                                 >
                                     Done
                                 </button>
                                 :
                                 <button
-                                    className="w-120px h-10 border-1px bg-slate-100 dark:bg-slate-400 rounded-md cursor-notallowed"
+                                    className="crc-w-120px crc-h-10 crc-border-1px crc-bg-slate-100 crc-dark:bg-slate-400 crc-rounded-md crc-cursor-notallowed"
                                     disabled={true}
                                 >
                                     Add

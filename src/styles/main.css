@@ -13,17 +13,17 @@ body{
 .vue-shadow{
     box-shadow: 0 3px 3px -2px rgba(0,0,0,.2),0 3px 4px 0 rgba(0,0,0,.14),0 1px 8px 0 rgba(0,0,0,.12)!important
 }
-.vue-shadow-md{
+.vue-crc-shadow-md{
     box-shadow: 0 6px 6px -3px rgba(0,0,0,.2),0 10px 14px 1px rgba(0,0,0,.14),0 4px 18px 3px rgba(0,0,0,.12)!important
 }
 .vue-shadow-lg{
     box-shadow: 0 10px 13px -6px rgba(0,0,0,.2),0 20px 31px 3px rgba(0,0,0,.14),0 8px 38px 7px rgba(0,0,0,.12)!important;
 }
-.shadow-md{
-    @apply border-t-[2px] border-gray-300/25
+.crc-shadow-md{
+    @apply crc-border-t-[2px] crc-border-gray-300/25
 }
-.hover\:shadow-md:hover{
-    @apply border-t-[2px] border-gray-300/25
+.hover\:crc-shadow-md:hover{
+    @apply crc-border-t-[2px] crc-border-gray-300/25
 }
 
 
@@ -33,20 +33,20 @@ ul{padding:0;margin:0;padding-inline-start:0}
 ul li{display: list-item}
 h1,h2,h3,h4,h5{margin:0;font-weight: 700;font-size: initial}
 a{text-decoration:none;color:inherit}
-textarea,button{outline:none;@apply border-0 border-gray-300 border-solid; cursor:pointer;background-color:inherit;color:inherit}
+textarea,button{outline:none;@apply crc-border-0 crc-border-gray-300 crc-border-solid; cursor:pointer;background-color:inherit;color:inherit}
 button:focus{outline:none}
 p{
     margin-block: 0;
 }
 *{
-    @apply border-solid border-gray-300;
+    @apply crc-border-solid crc-border-gray-300;
 }
 input,button,optgroup,select,textarea{
     font-family:inherit;font-size:100%;font-weight:inherit;color:inherit;line-height:inherit;margin:0;padding:0;
-    @apply border-solid border-[1px] border-gray-300 pl-3
+    @apply crc-border-solid crc-border-[1px] crc-border-gray-300 crc-pl-3
 }
 button{
-    @apply pl-0;
+    @apply crc-pl-0;
 }
 input:focus,select:focus-visible,input:focus-visible,textarea:focus-visible{outline:none}
 /* Chrome, Safari, Edge, Opera */
@@ -61,17 +61,17 @@ input.hide-arrows[type=number] {
     -moz-appearance: textfield;
 }
 button{
-    @apply border-0
+    @apply crc-border-0
 }
-.dropdown-cont .dropdown,.dropdown-cont .dropdown.flex{display:none}
+.dropdown-cont .dropdown,.dropdown-cont .dropdown.crc-flex{display:none}
 .dropdown-cont:hover>.dropdown{display:initial}
-.dropdown-cont:hover>.dropdown.flex{display:flex}
+.dropdown-cont:hover>.dropdown.crc-flex{display:flex}
 .dropdown-cont:hover>.dropdown.block{display:block}
 .dropdown-cont:hover>.dropdown.inline{display:inline}
 .dropdown-cont:hover>.dropdown.grid{display:grid}
 .input-absolute-label:focus + .absolute-label,.input-valid + .absolute-label,
 .input-invalid + .absolute-label{top: 0;color: #1476f2;font-size: smaller}
-.input-invalid {@apply border-red-300}
+.input-invalid {@apply crc-border-red-300}
 
 img, video {
     max-width: 100%;
@@ -82,10 +82,10 @@ img, svg, video, canvas, audio, iframe, embed, object {
     vertical-align: middle;
 }
 .img-overlay{
-    @apply absolute top-0 right-0 bottom-0 left-0 z-1
+    @apply crc-absolute crc-top-0 crc-right-0 crc-bottom-0 crc-left-0 crc-z-1
 }
 .cover-div{
-    @apply absolute top-0 right-0 bottom-0 left-0
+    @apply crc-absolute crc-top-0 crc-right-0 crc-bottom-0 crc-left-0
 }
 
 /*.hover\\pause-animation:hover{animation-play-state: paused}*/
@@ -132,20 +132,20 @@ img, svg, video, canvas, audio, iframe, embed, object {
 
 
 .section{
-    /*@apply w-90% md:w-80% mx-auto;*/
-    @apply w-90% mx-auto;
+    /*@apply w-90% md:crc-w-80% mx-auto;*/
+    @apply crc-w-90% crc-mx-auto;
 }
 @media (min-width: 1220px) {
     .lg\:section{
-        @apply w-80% mx-auto
+        @apply crc-w-80% crc-mx-auto
     }
 
 }
 .page-bullet{
-    @apply h-3 w-3 rounded-full bg-slate-400 mr-2;
+    @apply crc-h-3 crc-w-3 crc-rounded-full crc-bg-slate-400 crc-mr-2;
 }
 .page-bullet.page-bullet-active{
-    @apply bg-primary w-8  rounded-pill;
+    @apply crc-w-8  crc-rounded-pill;
 }
 
 
@@ -234,10 +234,5 @@ img, svg, video, canvas, audio, iframe, embed, object {
 
 
 @layer base {
-  * {
-    @apply border-border;
-    }
-  body {
-    @apply bg-background text-foreground;
-    }
+
 }

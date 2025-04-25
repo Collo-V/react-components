@@ -27,7 +27,7 @@ function ImageCropperCont() {
     return (
         <div>
             <button
-                className="h-10 px-2 border-1px rounded-md"
+                className="crc-h-10 crc-px-2 crc-border-1px crc-rounded-md"
                 onClick={selectImage}
             >
                 Select Image
@@ -35,9 +35,9 @@ function ImageCropperCont() {
             {
                 src &&
                 <>
-                    <div className="flex gap-4 mt-4">
+                    <div className="crc-flex crc-gap-4 crc-mt-4">
                         <div className="">
-                            <p className='mb-4 text-center'>Before crop</p>
+                            <p className='crc-mb-4 crc-text-center'>Before crop</p>
                             <Image
                                 src={src}
                                 alt={''}
@@ -48,7 +48,7 @@ function ImageCropperCont() {
                         {
                             croppedSrc &&
                             <div className="">
-                                <p className='mb-4 text-center'>Cropped</p>
+                                <p className='crc-mb-4 crc-text-center'>Cropped</p>
                                 <Image
                                     src={croppedSrc}
                                     alt={''}
@@ -66,7 +66,6 @@ function ImageCropperCont() {
                                 setShowCrop(false)
                             }}
                             setCropped={({preview}) => {
-                                console.log('Cropping......')
                                 setCroppedSrc(preview)
                                 setShowCrop(false)
                             }}

@@ -4,7 +4,7 @@ import 'cropperjs/dist/cropper.css'
 import { base64StringtoFile } from "collov-js-methods"
 import Image from "next/image";
 import {ImageInputResponseObject} from "@/types";
-import {ClickOutsideListener} from "collov-react-components";
+import ClickOutsideListener from "../modals/ClickOutsideListener";
 import {getImageSize} from "collov-js-methods";
 import {FaCheck} from "react-icons/fa";
 type Props = {

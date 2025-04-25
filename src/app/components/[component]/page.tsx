@@ -5,6 +5,7 @@ import ClickOutsideListenerCont from "@/app/app-components/component-conts/Click
 import SideNav from "@/app/app-components/SideNav";
 import ImageCropperCont from "@/app/app-components/component-conts/ImageCropperCont";
 import ImageInputCont from "@/app/app-components/component-conts/ImageInputCont";
+import QuillTextCont from '@/app/app-components/component-conts/QuillTextCont';
 
 export const generateMetadata = async({params}:PageProps)=>{
     const component = (await params).component;
@@ -22,6 +23,7 @@ async function Page({params}:PageProps) {
         ClickOutSideListener: ClickOutsideListenerCont,
         ImageCropper: ImageCropperCont,
         ImageInput: ImageInputCont,
+        QuillText:QuillTextCont
     }
     const Component = componentsMap[name as keyof ComponentsMap]||(()=>'');
 

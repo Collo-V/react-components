@@ -1,5 +1,5 @@
 import React, {useRef, useState} from "react"
-import { ClickOutsideListener } from "collov-react-components";
+import ClickOutsideListener from "@/components/modals/ClickOutsideListener";
 import ImageDropBox from "./ImageDropBox";
 import ImageInputPreviews from "./ImageInputPreviews";
 import ImageCropper from "../ImageCropper";

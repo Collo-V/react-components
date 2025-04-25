@@ -1,6 +1,6 @@
 import React, {useRef, useState} from "react"
 import {ImageInputComponentProps} from "@/types";
-import { ClickOutsideListener } from "collov-react-components";
+import ClickOutsideListener from "@/components/modals/ClickOutsideListener";
 import ImageCropper from "../ImageCropper";
 import {selectFiles} from "collov-js-methods";
 import MobImageInputPreviews from "@/components/images/input/MobImageInputPreviews";

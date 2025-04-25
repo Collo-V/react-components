@@ -32,6 +32,16 @@ function SideNav() {
             ]
         },
         {
+            title:"Inputs",
+            links: [
+                {
+                    name: 'QuillText',
+                    link: '/components/QuillText',
+                }
+                
+            ]
+        },
+        {
             title:"Modals",
             links: [
                 {

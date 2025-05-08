@@ -1,6 +1,6 @@
 'use client'
 import React, {useState} from 'react';
-import { QuillText } from '@/components/inputs/index';
+import { QuillText } from '@/components/inputs/csr';
 
 function QuillTextCont() {
     const [text, setText] = useState<string>('')

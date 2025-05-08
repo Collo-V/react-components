@@ -1,16 +1,21 @@
 {
   "name": "collov-react-components",
-  "version": "1.0.7",
+  "version": "1.2.2",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.es.js",
+  "csr": "dist/csr.es.js",
   "files": [
     "dist"
   ],
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.es.js"
+      "default": "./dist/index.es.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./csr": {
+      "default": "./dist/csr.es.js",
+      "types": "./dist/csr.d.ts"
     },
     "./css": "./dist/styles.css"
   },

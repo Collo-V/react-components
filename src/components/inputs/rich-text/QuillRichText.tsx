@@ -4,6 +4,7 @@ const ReactQuill = dynamic(() => import('./ReactQuill'), { ssr: false })
 import dynamic from "next/dynamic";
 import {extractTextFromHTML} from "collov-js-methods";
 import '@/styles/quill.css'
+import AIComponentQuill from "@/components/inputs/rich-text/AIComponentQuill";
 const toolbar = [
     ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
     ['blockquote', 'code-block'],

@@ -1,7 +1,3 @@
-/*
-React-Quill
-https://github.com/zenoamaro/react-quill
-*/
 
 import React, {JSX} from 'react';
 // @ts-expect-error Ignore

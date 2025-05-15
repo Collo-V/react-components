@@ -1,6 +1,6 @@
 'use client'
 import React, {useEffect, useState} from 'react';
-import {AnyObject, extractTextFromHTML} from "collov-js-methods";
+import {extractTextFromHTML} from "collov-js-methods";
 import '@/styles/quill.css'
 import ComponentReactQuill from "@/components/inputs/rich-text/ComponentReactQuill";
 import {InputStatus} from "@/types";

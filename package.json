@@ -1,6 +1,6 @@
 {
   "name": "collov-react-components",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -75,7 +75,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "antd": "^5.22.5",
+    "antd": "^5.25.1",
     "autoprefixer": "^10.4.20",
     "axios": "^1.7.9",
     "babel-loader": "^9.1.3",

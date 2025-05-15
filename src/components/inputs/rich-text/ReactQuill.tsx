@@ -4,85 +4,21 @@ import React, {JSX} from 'react';
 import isEqual from 'lodash/isEqual';
 
 import Quill, {
-    QuillOptions as QuillOptionsStatic,
 // @ts-expect-error Ignore
     DeltaStatic,
 // @ts-expect-error Ignore
     RangeStatic,
 // @ts-expect-error Ignore
-    BoundsStatic,
-// @ts-expect-error Ignore
-    StringMap,
-// @ts-expect-error Ignore
     Sources,
 } from 'quill';
-
-export interface QuillOptions extends QuillOptionsStatic {
-    tabIndex?: number,
-}
-export type Value = string | DeltaStatic;
-export type Range = RangeStatic | null;
-export interface ReactQuillProps {
-    bounds?: string | HTMLElement,
-    children?: React.ReactElement<unknown>,
-    className?: string,
-    defaultValue?: Value,
-    formats?: string[],
-    id?: string,
-    modules?: StringMap,
-    onChange?(
-        value: string,
-        delta: DeltaStatic,
-        source: Sources,
-        editor: UnprivilegedEditor,
-    ): void,
-    onChangeSelection?(
-        selection: Range,
-        source: Sources,
-        editor: UnprivilegedEditor,
-    ): void,
-    onFocus?(
-        selection: Range,
-        source: Sources,
-        editor: UnprivilegedEditor,
-    ): void,
-    onBlur?(
-        previousSelection: Range,
-        source: Sources,
-        editor: UnprivilegedEditor,
-    ): void,
-    // @ts-expect-error Ignore
-    onKeyDown?: React.EventHandler<unknown>,
-    // @ts-expect-error Ignore
-    onKeyPress?: React.EventHandler<unknown>,
-    // @ts-expect-error Ignore
-    onKeyUp?: React.EventHandler<unknown>,
-    placeholder?: string,
-    preserveWhitespace?: boolean,
-    readOnly?: boolean,
-    scrollingContainer?: string | HTMLElement,
-    style?: React.CSSProperties,
-    tabIndex?: number,
-    theme?: string,
-    value?: Value,
-}
-export interface UnprivilegedEditor {
-    getLength(): number;
-    getText(index?: number, length?: number): string;
-    getHTML(): string;
-    getBounds(index: number, length?: number): BoundsStatic;
-    getSelection(focus?: boolean): RangeStatic;
-    getContents(index?: number, length?: number): DeltaStatic;
-}
-// Merged namespace hack to export types along with default object
-interface ReactQuillState {
-    generation: number,
-}
-// See: https://github.com/Microsoft/TypeScript/issues/2719
-
-
-// Re-import everything from namespace into scope for comfort
-
+import {
+    QuillOptions,
+    QuillRange,
+    QuillValue,
+    ReactQuillProps,
+    ReactQuillState,
+    UnprivilegedEditor
+} from '@/types';
 
 class ReactQuill extends React.Component<ReactQuillProps, ReactQuillState> {
     editorRef  = React.createRef<HTMLDivElement>();
@@ -148,12 +84,12 @@ class ReactQuill extends React.Component<ReactQuillProps, ReactQuillState> {
     /*
     Tracks the internal value of the Quill editor
     */
-    value: Value
+    value: QuillValue
 
     /*
     Tracks the internal selection of the Quill editor
     */
-    selection: Range = null
+    selection: QuillRange = null
 
     /*
     Used to compare whether deltas from `onChange` are being used as `value`.
@@ -165,7 +101,7 @@ class ReactQuill extends React.Component<ReactQuillProps, ReactQuillState> {
     */
     regenerationSnapshot?: {
         delta: DeltaStatic,
-        selection: Range,
+        selection: QuillRange,
     }
 
     /*
@@ -309,7 +245,6 @@ class ReactQuill extends React.Component<ReactQuillProps, ReactQuillState> {
             modules: this.props.modules,
             placeholder: this.props.placeholder,
             readOnly: this.props.readOnly,
-            // @ts-expect-error Ignore
             scrollingContainer: this.props.scrollingContainer,
             tabIndex: this.props.tabIndex,
             theme: this.props.theme,
@@ -348,11 +283,11 @@ class ReactQuill extends React.Component<ReactQuillProps, ReactQuillState> {
         editor.off('editor-change', this.onEditorChange);
     }
 
-    getEditorContents(): Value {
+    getEditorContents(): QuillValue {
         return this.value;
     }
 
-    getEditorSelection(): Range {
+    getEditorSelection(): QuillRange {
         return this.selection;
     }
 
@@ -380,7 +315,7 @@ class ReactQuill extends React.Component<ReactQuillProps, ReactQuillState> {
     Replace the contents of the editor, but keep the previous selection hanging
     around so that the cursor won't move.
     */
-    setEditorContents(editor: Quill, value: Value) {
+    setEditorContents(editor: Quill, value: QuillValue) {
         this.value = value;
         const sel = this.getEditorSelection();
         if (typeof value === 'string') {
@@ -392,7 +327,7 @@ class ReactQuill extends React.Component<ReactQuillProps, ReactQuillState> {
         postpone(() => this.setEditorSelection(editor, sel));
     }
 
-    setEditorSelection(editor: Quill, range: Range) {
+    setEditorSelection(editor: Quill, range: QuillRange) {
         this.selection = range;
         if (range) {
             // Validate bounds before applying.
@@ -493,8 +428,8 @@ class ReactQuill extends React.Component<ReactQuillProps, ReactQuillState> {
 
     onEditorChange = (
         eventName: 'text-change' | 'selection-change',
-        rangeOrDelta: Range | DeltaStatic,
-        oldRangeOrDelta: Range | DeltaStatic,
+        rangeOrDelta: QuillRange | DeltaStatic,
+        oldRangeOrDelta: QuillRange | DeltaStatic,
         source: Sources,
     ) => {
         if (eventName === 'text-change') {

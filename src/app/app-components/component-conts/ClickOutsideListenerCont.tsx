@@ -7,6 +7,20 @@ function ClickOutsideListenerCont() {
     const ref = useRef<HTMLDivElement>(null)
     return (
         <div>
+            <div className="crc-mb-10 crc-grid crc-gap-4">
+                <p className={''}>
+                    import {`{ClickOutSideListener} from  'collov-react-components'`}
+                </p>
+                <div>
+                    <h5>Props:</h5>
+                    <ul className={'crc-list-disc'}>
+                        <li>
+                            onClick:{`()=>void`}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
             <button
                 className="crc-h-10 crc-px-2 crc-border-1px crc-rounded-md"
                 onClick={() => setCount(0)}

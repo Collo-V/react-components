@@ -68,7 +68,7 @@ const config = [
     external,
   },
   {
-    input: 'src/csr.ts',
+    input: 'src/index.ts',
     output: [
       {
         file: packageJson.csr,

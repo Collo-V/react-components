@@ -10,7 +10,7 @@ import {FaCheck} from "react-icons/fa";
 type Props = {
     src:string,
     onCancel:()=>void,
-    setCropped:(image:ImageInputResponseObject)=>void,
+    onCropped:(image:ImageInputResponseObject)=>void,
     filename?:string,
     aspectRatio?:number,
     maxWidth?:number
@@ -18,7 +18,7 @@ type Props = {
 }
 function ImageCropper(props:Props) {
     const {
-        src,onCancel,setCropped,filename,aspectRatio,
+        src,onCancel,onCropped,filename,aspectRatio,
         maxWidth,minWidth
     } = props
     const cropImagesContRef = useRef<HTMLDivElement>(null)
@@ -37,7 +37,7 @@ function ImageCropper(props:Props) {
         })
         const croppedPrev = canvas.toDataURL()
         const cropped = base64StringtoFile(croppedPrev,filename??'image.png')!
-        setCropped({file:cropped,preview:croppedPrev})
+        onCropped({file:cropped,preview:croppedPrev})
 
     }
     useEffect(()=>{

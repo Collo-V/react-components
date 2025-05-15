@@ -3,6 +3,7 @@ import React, {useCallback, useEffect, useState} from 'react';
 import {fileToBase64, selectFiles} from "collov-js-methods";
 import ImageCropper from "@/components/images/ImageCropper";
 import Image from "next/image";
+import ImageInputResponseObjectComponent from "@/app/app-components/shared/ImageInputResponseObjectComponent";
 
 function ImageCropperCont() {
     const acceptedImageFormats  = ['image/png','image/jpeg','image/jpg',"image/jfif","image/tif"]
@@ -26,6 +27,34 @@ function ImageCropperCont() {
 
     return (
         <div>
+            <div className="crc-mb-10 crc-grid crc-gap-4">
+                <p className={''}>
+                    import {`{ImageCropper} from  'collov-react-components'`}
+                </p>
+                <div>
+                    <h5>Props:</h5>
+                    <ul className={'crc-list-disc'}>
+                        <li>
+                            src:string
+                        </li>
+                        <li>
+                            onCropped:{`(data:`}<ImageInputResponseObjectComponent/>{`)=>void`}
+                        </li>
+                        <li>
+                            filename?:string,
+                        </li>
+                        <li>
+                            aspectRatio?:number,
+                        </li>
+                        <li>
+                            maxWidth?:number
+                        </li>
+                        <li>
+                            minWidth?:number
+                        </li>
+                    </ul>
+                </div>
+            </div>
             <button
                 className="crc-h-10 crc-px-2 crc-border-1px crc-rounded-md"
                 onClick={selectImage}
@@ -65,7 +94,7 @@ function ImageCropperCont() {
                             onCancel={() => {
                                 setShowCrop(false)
                             }}
-                            setCropped={({preview}) => {
+                            onCropped={({preview}) => {
                                 setCroppedSrc(preview)
                                 setShowCrop(false)
                             }}

@@ -113,7 +113,7 @@ function MainImageInput(
                         <ImageCropper
                             src={tempFiles[cropIndex].preview}
                             onCancel={()=>setShowCropper(false)}
-                            setCropped={(image)=>{
+                            onCropped={(image)=>{
                                 replaceImage(cropIndex,image)
                                 setShowCropper(false)
                             }}

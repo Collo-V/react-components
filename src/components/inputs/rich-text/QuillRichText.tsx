@@ -1,10 +1,9 @@
 'use client'
 import React, {useEffect, useState} from 'react';
-const ReactQuill = dynamic(() => import('./ReactQuill'), { ssr: false })
-import dynamic from "next/dynamic";
-import {extractTextFromHTML} from "collov-js-methods";
+import {AnyObject, extractTextFromHTML} from "collov-js-methods";
 import '@/styles/quill.css'
-import AIComponentQuill from "@/components/inputs/rich-text/AIComponentQuill";
+import ComponentReactQuill from "@/components/inputs/rich-text/ComponentReactQuill";
+import {InputStatus} from "@/types";
 const toolbar = [
     ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
     ['blockquote', 'code-block'],
@@ -24,20 +23,21 @@ const toolbar = [
 export type QuillTextProps = {
     value:string|null,
     handleChange:(value:string|null)=>void,
-    error?:boolean,
+    status?:InputStatus,
     maximumWords?:number,
-    placeholder?:string
+    placeholder?:string,
+    showWordCount?:boolean,
 }
 
 function QuillRichText(props:QuillTextProps) {
     const {
-        value,handleChange,error,maximumWords,
-        placeholder,
+        value,handleChange,status,maximumWords,
+        placeholder,showWordCount
     } = props
+    const countWords = showWordCount !== false
     const [showQuill,setShowQuill] = useState(false)
     const [totalWords, setTotalWords] = useState<number>(0)
     const [disableEditor, setDisableEditor] = useState<boolean>(false)
-    const maxWords:number = maximumWords??2000
     useEffect(() => {
         setShowQuill(true)
     }, []);
@@ -47,42 +47,41 @@ function QuillRichText(props:QuillTextProps) {
         setTotalWords(text.length)
     }, [value]);
     useEffect(() => {
-        if(totalWords > maxWords){
+        if(!maximumWords)return
+        if(totalWords > maximumWords){
             // editorRef.current.editor.container.classList.add('border-2px border-red-500')
         }
-        setDisableEditor(totalWords > maxWords)
+        setDisableEditor(totalWords > maximumWords)
     }, [value]);
     const getContClass = ()=>{
         let c ='dark:crc-text-white'
-        if(disableEditor || error)c+=" border-red-500 border-2px"
+        if(disableEditor || status === 'error')c+=" border-red-500 border-2px"
         return c
     }
     return (
         <React.Fragment>
             {
                 showQuill &&
-                <ReactQuill
+                <ComponentReactQuill
                     placeholder={placeholder||'Start typing'}
                     className={getContClass()}
+                    style={{
+                        border:disableEditor?'solid 1px #F87171':"",
+                    }}
                     theme="snow"
                     value={value}
                     modules={{
                         toolbar
                     }}
-                    onChange={handleChange} />
+                    onChange={handleChange}
+                />
             }
-            <div className="crc-flex crc-justify-end">
-                {
-                    disableEditor &&
-                    <input type="text" className="crc-hidden input-valid"/>
-                }
-                {
-                    disableEditor ?
-                        <span className={'crc-text-red-500'}>{totalWords}/{maxWords}</span>
-                        :
-                        <span>{totalWords}/{maxWords}</span>
-                }
-            </div>
+            {
+                countWords &&
+                <div className="crc-flex crc-justify-end">
+                    <span className={`${disableEditor&&'crc-text-red-500'}`}>{totalWords}{maximumWords &&`/${maximumWords}`}</span>
+                </div>
+            }
         </React.Fragment>
     );
 }

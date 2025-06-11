@@ -7,6 +7,7 @@ import {
 } from '@/types';
 //@ts-expect-error Ignore
 import isEqual from "lodash/isEqual";
+import {extractTextFromHTML} from "collov-js-methods";
 
 function postpone(fn: () => void) {
     Promise.resolve().then(fn);
@@ -15,13 +16,7 @@ function ComponentReactQuill(
     props:ReactQuillProps
 ) {
     const editorRef = useRef<HTMLDivElement>(null);
-    const dirtyProps: (keyof ReactQuillProps)[] = [
-        'modules',
-        'formats',
-        'bounds',
-        'theme',
-        'children',
-    ]
+
 
     /*
     Changing one of these props should cause a regular update. These are mostly
@@ -193,6 +188,7 @@ function ComponentReactQuill(
         source: Sources,
     ) => {
         if (eventName === 'text-change') {
+            //TODO: Check what trims the contents
             onEditorChangeText(
                 editorInstance.current!.root.innerHTML,
                 rangeOrDelta as DeltaStatic,
@@ -268,8 +264,15 @@ function ComponentReactQuill(
     },[generation,props])
 
     const shouldRegenerate = useCallback((prevProps: ReactQuillProps) => {
+        const dirtyProps: (keyof ReactQuillProps)[] = [
+            'modules',
+            'formats',
+            'bounds',
+            'theme',
+            'children',
+        ]
         return dirtyProps.some(prop => !isEqual(props[prop], prevProps[prop]));
-    }, [dirtyProps, props]);
+    }, [props]);
 
     const destroyEditor = useCallback(() => {
         if (editorInstance.current) {

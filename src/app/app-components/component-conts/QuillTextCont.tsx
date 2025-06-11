@@ -1,10 +1,14 @@
 'use client'
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { QuillText } from '@/components/inputs';
 import InputStatusTypeComponent from "@/app/app-components/shared/InputStatusTypeComponent";
+import {extractTextFromHTML} from "collov-js-methods";
 
 function QuillTextCont() {
     const [text, setText] = useState<string>('Some thing')
+    useEffect(() => {
+        console.log('text:', (text||'').split(''))
+    }, [text]);
     return (
         <div>
             <div className="crc-mb-10 crc-grid crc-gap-4">
@@ -44,7 +48,8 @@ function QuillTextCont() {
            <QuillText
                placeholder={'What do you want?'}
                 value={text}
-                handleChange={function (value: string | null): void {
+                handleChange={(value: string | null): void=> {
+                    console.log('updating :', `'${extractTextFromHTML(value||'')}'`)
                     setText(value||'')
                 } }          
             />

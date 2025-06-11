@@ -7,7 +7,6 @@ import {
 } from '@/types';
 //@ts-expect-error Ignore
 import isEqual from "lodash/isEqual";
-import {extractTextFromHTML} from "collov-js-methods";
 
 function postpone(fn: () => void) {
     Promise.resolve().then(fn);

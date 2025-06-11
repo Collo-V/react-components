@@ -2,8 +2,8 @@
 import React, {useEffect, useState} from 'react';
 import {extractTextFromHTML} from "collov-js-methods";
 import '@/styles/quill.css'
-import ComponentReactQuill from "@/components/inputs/rich-text/ComponentReactQuill";
 import {InputStatus} from "@/types";
+import ReactQuill from "@/components/inputs/rich-text/ReactQuill";
 const toolbar = [
     ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
     ['blockquote', 'code-block'],
@@ -62,7 +62,7 @@ function QuillRichText(props:QuillTextProps) {
         <React.Fragment>
             {
                 showQuill &&
-                <ComponentReactQuill
+                <ReactQuill
                     placeholder={placeholder||'Start typing'}
                     className={getContClass()}
                     style={{

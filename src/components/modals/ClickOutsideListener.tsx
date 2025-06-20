@@ -34,11 +34,22 @@ function ClickOutsideListener({children,onCLick,exclude}:Props) {
                         }
                         if(exclude){
                             for(let i = 0; i < exclude.length; i++) {
-                                let excludeElement = exclude[i];
+                                const excludeElement = exclude[i];
                                 if(typeof excludeElement === "string") {
-                                    excludeElement = document.getElementById(excludeElement) as HTMLElement
+                                    if(excludeElement.startsWith('.')){
+                                        if(target.classList.contains(excludeElement)){
+                                            isOutside = false;
+                                            break                                            
+                                        }
+                                    }
+                                    else{
+                                        if(target.id === excludeElement){
+                                            isOutside = false;
+                                            break                                            
+                                        }
+                                    }
                                 }
-                                if(excludeElement === target){
+                                else if (excludeElement === target){
                                     isOutside = false;
                                     break
                                 }
